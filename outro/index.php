@@ -16,8 +16,39 @@
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-            
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Sistema de login</h3>
+                    <h3 class="title has-text-grey"><a href="https://" target="_blank">Canal Tal</a></h3>
+                    <?php
+                    if(isset($_SESSION['nao_autenticado'])):
+                    ?>
+                    <div class="notification is-danger">
+                        <p>ERRO: Usuário e senha inválidos.</p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['nao_autenticado']);
+                    ?>
+                    <div class="box">
+                        <form action="login.php" method="post">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" name="usuario" class="input is-large" placeholder="Seu usuário" autofocus="">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" name="senha" class="input is-large" placeholder="Sua senha">
+                                </div>
+                            </div>
+                            <button type="submit" class="button is-block is-link is-large is-fullwidth">Entrar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </body>
+
+</html>
